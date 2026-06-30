@@ -145,7 +145,7 @@ if app_mode == "💬 Chat about an image":
             st.session_state.current_file_id = file_id
             st.session_state.messages = []
 
-        st.image(uploaded_file, caption="Uploaded image", use_container_width=True)
+        st.image(uploaded_file, caption="Uploaded image", use_column_width=True)
 
         for msg in st.session_state.messages:
             if msg["role"] == "user":
@@ -212,7 +212,7 @@ elif app_mode == "📝 Extract text (OCR)":
     uploaded_file = st.file_uploader("Upload an image with text", type=["jpg", "jpeg", "png"], key="ocr_upload")
 
     if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded image", use_container_width=True)
+        st.image(uploaded_file, caption="Uploaded image", use_column_width=True)
 
         if st.button("📝 Extract Text"):
             base64_image = encode_image(uploaded_file)
